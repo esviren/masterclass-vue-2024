@@ -6,3 +6,7 @@ export interface CustomError extends Error {
 export interface ExtendedPostgresError extends PostgrestError {
   statusCode?: number
 }
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useErrorStore, import.meta.hot))
+}
