@@ -6,12 +6,12 @@ const links = [
     icon: 'lucide:house',
   },
   {
-    title: 'Projects',
+    title: 'Administradoras',
     to: '/projects',
     icon: 'lucide:building-2',
   },
   {
-    title: 'My Tasks',
+    title: 'Copropiedades',
     to: '/tasks',
     icon: 'lucide:badge-check',
   },

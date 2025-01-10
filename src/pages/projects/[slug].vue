@@ -1,43 +1,37 @@
 <script setup lang="ts">
-import { projectQuery, type Project } from '@/utils/supaQueries'
+const { slug } = useRoute('/projects/[slug]').params
 
-const route = useRoute('/projects/[slug]')
-
-const project = ref<Project | null>(null)
+const projectsLoader = useProjectsStore()
+const { project } = storeToRefs(projectsLoader)
+const { getProject, updateProject } = projectsLoader
 
 watch(
   () => project.value?.name,
   () => {
-    usePageStore().pageData.title = `Project: ${project.value?.name || ''}`
+    usePageStore().pageData.title = `Administradora: ${project.value?.name || ''}`
   },
 )
 
-const getProjects = async () => {
-  const { data, error, status } = await projectQuery(route.params.slug)
-
-  if (error) useErrorStore().setError({ error, customCode: status })
-
-  project.value = data
-}
-
-await getProjects()
+await getProject(slug)
 </script>
 
 <template>
   <Table v-if="project">
     <TableRow>
       <TableHead> Name </TableHead>
-      <TableCell> {{ project.name }} </TableCell>
+      <TableCell> <AppInPlaceEditText v-model="project.name" @commit="updateProject" /></TableCell>
     </TableRow>
     <TableRow>
       <TableHead> Description </TableHead>
       <TableCell>
-        {{ project.description }}
+        <AppInPlaceEditText v-model="project.description" @commit="updateProject" />
       </TableCell>
     </TableRow>
     <TableRow>
       <TableHead> Status </TableHead>
-      <TableCell>{{ project.status }}</TableCell>
+      <TableCell>
+        <AppInPlaceEditStatus v-model="project.status" @commit="updateProject"
+      /></TableCell>
     </TableRow>
     <TableRow>
       <TableHead> Collaborators </TableHead>
@@ -60,7 +54,7 @@ await getProjects()
 
   <section v-if="project" class="mt-10 flex flex-col md:flex-row gap-5 justify-between grow">
     <div class="flex-1">
-      <h2>Tasks</h2>
+      <h2>Copropiedades</h2>
       <div class="table-container">
         <Table>
           <TableHeader>

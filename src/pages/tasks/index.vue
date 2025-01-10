@@ -2,7 +2,7 @@
 import { tasksWithProjectsQuery, type TasksWithProjects } from '@/utils/supaQueries'
 import { columns } from '@/utils/tableColumns/tasksColumns'
 
-usePageStore().pageData.title = 'My Tasks'
+usePageStore().pageData.title = 'Copropiedades'
 
 const tasks = ref<TasksWithProjects | null>(null)
 const getTasks = async () => {

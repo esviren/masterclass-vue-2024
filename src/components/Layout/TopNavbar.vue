@@ -22,7 +22,7 @@
         <DropdownMenuItem>Profile</DropdownMenuItem>
         <DropdownMenuItem>Billing</DropdownMenuItem>
         <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        <DropdownMenuItem>Administradoras</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   </nav>
