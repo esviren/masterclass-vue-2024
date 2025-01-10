@@ -7,7 +7,7 @@ const task = ref<Task | null>(null)
 watch(
   () => task.value?.name,
   () => {
-    usePageStore().pageData.title = `Task: ${task.value?.name || ''}`
+    usePageStore().pageData.title = `Copropiedad: ${task.value?.name || ''}`
   },
 )
 

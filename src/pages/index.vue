@@ -3,6 +3,7 @@ usePageStore().pageData.title = 'Homepage'
 </script>
 <template>
   <div>
-    <h1>Home Page</h1>
+    <img class="h-48" src="/logo.png" />
+    <h1>Gestion de Copropiedas, de froma sencilla y estructurada.</h1>
   </div>
 </template>
