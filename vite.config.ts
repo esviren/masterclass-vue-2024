@@ -39,6 +39,9 @@ export default defineConfig({
         {
           pinia: ['defineStore', 'storeToRefs', 'acceptHMRUpdate'],
         },
+        {
+          'vue-meta': ['useMeta'],
+        },
       ],
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx

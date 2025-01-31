@@ -27,7 +27,7 @@ export const columns = (collabs: Ref<GroupedCollabs>): ColumnDef<Projects[0]>[] 
     accessorKey: 'status',
     header: () => h('div', { class: 'text-left' }, 'Status'),
     cell: ({ row }) => {
-      return h(AppInPlaceEditStatus, { modelValue: row.original.status })
+      return h(AppInPlaceEditStatus, { modelValue: row.original.status, readonly: true })
     },
   },
   {

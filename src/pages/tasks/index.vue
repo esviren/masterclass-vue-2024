@@ -13,9 +13,19 @@ const getTasks = async () => {
 }
 
 await getTasks()
+
+const { getGroupedCollabs, groupedCollabs } = useCollabs()
+
+getGroupedCollabs(tasks.value ?? [])
+
+const columnsWithCollabs = columns(groupedCollabs)
+
+useMeta({
+  title: 'Copropiedades - Raizontal',
+})
 </script>
 <template>
   <div class="container py-10 mx-auto">
-    <DataTable v-if="tasks" :columns="columns" :data="tasks" />
+    <DataTable v-if="tasks" :columns="columnsWithCollabs" :data="tasks" />
   </div>
 </template>
