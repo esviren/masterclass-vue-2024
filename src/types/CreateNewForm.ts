@@ -8,4 +8,5 @@ export interface CreateNewTask {
 export interface CreateNewProject {
   name: string
   description: string
+  slug: string
 }

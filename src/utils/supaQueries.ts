@@ -1,5 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
-import type { CreateNewTask } from '@/types/CreateNewForm'
+import type { CreateNewProject, CreateNewTask } from '@/types/CreateNewForm'
 import type { QueryData } from '@supabase/supabase-js'
 
 export const tasksWithProjectsQuery = supabase.from('tasks').select(`
@@ -79,4 +79,8 @@ export type Collabs = QueryData<ReturnType<typeof groupedProfileQuery>>
 
 export const createNewTaskQuery = (newTask: CreateNewTask) => {
   return supabase.from('tasks').insert(newTask)
+}
+
+export const createNewProjectQuery = (newProject: CreateNewProject) => {
+  return supabase.from('projects').insert(newProject)
 }

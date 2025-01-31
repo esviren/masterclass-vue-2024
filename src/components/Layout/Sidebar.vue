@@ -51,7 +51,7 @@ const executeAction = async (linkTitle: string) => {
   }
 }
 
-defineEmits(['taskClicked'])
+defineEmits(['taskClicked', 'projectClicked'])
 
 const { menuOpen, toggleMenu } = inject(menuKey) as MenuInjectionOptions
 const windowWith = useWindowSize().width
@@ -82,8 +82,8 @@ watchEffect(() => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem @click="$emit('taskClicked')">Task</DropdownMenuItem>
-          <DropdownMenuItem>Project</DropdownMenuItem>
+          <DropdownMenuItem @click="$emit('taskClicked')">Copropiedad</DropdownMenuItem>
+          <DropdownMenuItem @click="$emit('projectClicked')">Administradora</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

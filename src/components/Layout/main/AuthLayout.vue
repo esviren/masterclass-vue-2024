@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import AppNewProject from '@/components/AppNew/AppNewProject.vue'
 import { menuKey } from '@/utils/injectionKeys'
 
 const { pageData } = storeToRefs(usePageStore())
 
 const taskSheetOpen = ref(false)
+const projectSheetOpen = ref(false)
 
 const { menuOpen } = useMenu()
 const toggleMenu = () => (menuOpen.value = !menuOpen.value)
@@ -16,8 +18,9 @@ provide(menuKey, {
 
 <template>
   <div>
-    <Sidebar @taskClicked="taskSheetOpen = true" />
+    <Sidebar @taskClicked="taskSheetOpen = true" @projectClicked="projectSheetOpen = true" />
     <AppNewTask v-model="taskSheetOpen" />
+    <AppNewProject v-model="projectSheetOpen" />
     <div
       class="flex flex-col transition-[margin]"
       :class="{ 'ml-52': menuOpen, 'ml-24': !menuOpen }"
