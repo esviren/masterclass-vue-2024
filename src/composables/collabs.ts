@@ -13,7 +13,7 @@ export const useCollabs = () => {
 
   const getGroupedCollabs = async (items: Projects | TasksWithProjects) => {
     const filterItems = items.filter((item) => item.collaborators?.length)
-    const promises = filterItems.map((item) => getProfileByIds(item.collaborators))
+    const promises = filterItems.map((item) => getProfileByIds(item.collaborators ?? ['']))
 
     const results = await Promise.all(promises)
     items.forEach((item, index) => {
